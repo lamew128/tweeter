@@ -1,0 +1,62 @@
+article.tweet {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-style: solid;
+  border-color: #000000;
+}
+
+header.tweet {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  color:black;
+  width: 96%;
+}
+
+div.tweet {
+  width: 94%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+div.info {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+div.icon {
+  width: 4em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+i.blue {
+  color: #4056A1;
+}
+
+i.orange {
+  color: darkorange;
+}
+
+footer.tweet {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 96%;
+  font-size: small;
+}
+
+hr {
+  width: 98%;
+  height: 0.2em;
+  background-color: black;
+  border-width: 0;
+}

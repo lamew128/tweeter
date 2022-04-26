@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -23,6 +24,7 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/scripts/icon-hover.js"></script>
   </head>
 
   <body>
@@ -35,7 +37,7 @@
       </div>
     </nav>
 
-    <header>
+    <header class="profile">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -52,11 +54,34 @@
         <form class="block" method="POST" action="/tweets">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <br>
-          <div>
-            <button type="submit">Tweet</button>
+          <div class="new">
+            <button class="blue" type="submit">Tweet</button>
             <output name="counter" id="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+      <section>
+        <article class="tweet">
+          <header class="tweet">
+            <div class="info">
+              <i class="fa-solid fa-user-astronaut" style="margin-right: 1em"></i>
+              <p>1qaz2wsx</p>
+            </div>
+            <p>@qwer1234</p>
+          </header>
+          <div class="tweet">
+            <p>wqeqeqwewqeqweqwewqe</p>
+          </div>
+          <hr>
+          <footer class="tweet">
+            <p>10 days ago</p>
+            <div class="icon">
+              <a href="/"><i class="fa-solid fa-flag blue"></i></a>
+              <a href="/"><i class="fa-solid fa-arrow-up-right-from-square blue"></i></a>
+              <a href="/"><i class="fa-solid fa-heart blue"></i></a>
+            </div>
+          </footer>
+        </article>
       </section>
     </main>
   </body>

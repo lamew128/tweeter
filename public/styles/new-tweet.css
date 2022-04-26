@@ -1,5 +1,5 @@
 .new-tweet {
-  border: 1em;
+  margin-bottom: 2em;
  }
 
  .new-tweet button {
@@ -7,6 +7,14 @@
    border: 0px;
    color: #FFFFFF;
    font-family: 'Bungee', cursive;
+ }
+
+ button.blue {
+  background-color: #4056A1;
+ }
+
+ button.orange {
+  background-color: darkorange;
  }
 
  .new-tweet output {
@@ -19,7 +27,7 @@
   align-content: space-between;
  }
 
- div {
+ div.new {
   display: flex;
   justify-content: space-between;
   align-items: center;

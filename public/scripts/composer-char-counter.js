@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // --- our code goes here ---
   $("#tweet-text").on('input', function() {
     //console.log($("#tweet-text").val().length);
     $("#counter").html(() => {
@@ -11,7 +10,6 @@ $(document).ready(function() {
         $("#counter").removeClass("counterZero");
         $("#counter").addClass("counter");
       }
-        
       return num;
     });
   });

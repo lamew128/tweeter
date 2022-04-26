@@ -31,4 +31,6 @@ body {
  main {
    width: 90%;
    background-color: inherit;
+   display: flex;
+   flex-direction: column;
  }

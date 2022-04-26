@@ -1,14 +1,13 @@
 $(document).ready(function() {
   $("#tweet-text").on('input', function() {
-    //console.log($("#tweet-text").val().length);
-    $("#counter").html(() => {
-      let num = 140 - $("#tweet-text").val().length;
+    $(this).siblings().children("#counter").html(() => {
+      let num = 140 - $(this).val().length;
       if(num <= 0) {
-        $("#counter").removeClass("counter");
-        $("#counter").addClass("counterZero");
+        $(this).siblings().children("#counter").removeClass("counter");
+        $(this).siblings().children("#counter").addClass("counterZero");
       } else {
-        $("#counter").removeClass("counterZero");
-        $("#counter").addClass("counter");
+        $(this).siblings().children("#counter").removeClass("counterZero");
+        $(this).siblings().children("#counter").addClass("counter");
       }
       return num;
     });

@@ -18,4 +18,12 @@ $(document).ready(function() {
     $(this).removeClass("orange");
     $(this).addClass("blue");
   });
+
+  $("article").on('mouseover', function() {
+    $(this).addClass("shadow");
+  });
+
+  $("article").on('mouseout', function() {
+    $(this).removeClass("shadow");
+  });
 });

@@ -8,6 +8,10 @@ article.tweet {
   border-color: #000000;
 }
 
+article.shadow {
+  box-shadow: 5px 10px #a3b6f5;
+}
+
 header.tweet {
   display: flex;
   justify-content: space-between;
@@ -51,7 +55,7 @@ footer.tweet {
   align-items: center;
   flex-direction: row;
   width: 96%;
-  font-size: small;
+  font-size: smaller;
 }
 
 hr {

@@ -4,6 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = function(tweetObject) {
   return `<article class="tweet">
   <header class="tweet">
@@ -14,11 +20,11 @@ const createTweetElement = function(tweetObject) {
     <p class="handle">${tweetObject.user.handle}</p>
   </header>
   <div class="tweet">
-    <p>${tweetObject.content.text}</p>
+    <p class="tweet">${escape(tweetObject.content.text)}</p>
   </div>
   <hr>
   <footer class="tweet">
-    <p>${tweetObject.created_at}</p>
+    <p>${timeago.format(tweetObject.created_at)}</p>
     <div class="icon">
       <a href="/"><i class="fa-solid fa-flag blue"></i></a>
       <a href="/"><i class="fa-solid fa-arrow-up-right-from-square blue"></i></a>
@@ -41,65 +47,37 @@ const renderTweets = function(tweets) {
 const loadTweets = function() {
   $.ajax('/tweets', { method: 'GET' })
     .then(function (data) {
-      console.log('Success: ', data);
+      //console.log('Success: ', data);
       renderTweets(data);
     });
+
 };
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 $(document).ready(function() {
-  renderTweets(data);
+  loadTweets();
 
   $("form").submit(function(event) {
     event.preventDefault();
-    console.log( $( this ).serialize() );
-
-    let newTweet = {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": $("#tweet-text").val()
-      },
-      "created_at": new Date()
-    };
 
     console.log('Button clicked, performing ajax call...');
+    if (!$("#tweet-text").val()) {
+      alert("no content!");
+      return;
+    } 
+
+    if($("#tweet-text").val().length > 140) {
+      alert("Limit exceed!");
+      return;
+    }
+
     $.ajax({ 
       url: '/tweets',
-      type: 'POST',
-      data: $( this ).serialize(),
-      success: function () {
-        console.log('Success: ');
-        loadTweets();
-      }
+      method: 'POST',
+      data: $( this ).serialize()
+    })
+    .then(function () {
+      console.log('Success: ');
+      loadTweets();
     });
 
   });

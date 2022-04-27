@@ -8,7 +8,7 @@ article.tweet {
   border-color: #000000;
 }
 
-article.shadow {
+article:hover {
   box-shadow: 5px 10px #a3b6f5;
 }
 
@@ -48,7 +48,7 @@ i.blue {
   color: #4056A1;
 }
 
-i.orange {
+i:hover {
   color: darkorange;
 }
 
@@ -72,4 +72,8 @@ hr {
 p.handle {
   color: #a3b6f5;
   font-weight: bold;
+}
+
+p.tweet {
+  word-break: break-all;
 }

@@ -1,14 +1,4 @@
 $(document).ready(function() {
-  $("i").on('mouseover', function() {
-    $(this).removeClass("blue");
-    $(this).addClass("orange");
-  });
-
-  $("i").on('mouseout', function() {
-    $(this).removeClass("orange");
-    $(this).addClass("blue");
-  });
-
   $("button").on('mouseover', function() {
     $(this).removeClass("blue");
     $(this).addClass("orange");
@@ -17,13 +7,5 @@ $(document).ready(function() {
   $("button").on('mouseout', function() {
     $(this).removeClass("orange");
     $(this).addClass("blue");
-  });
-
-  $("article").on('mouseover', function() {
-    $(this).addClass("shadow");
-  });
-
-  $("article").on('mouseout', function() {
-    $(this).removeClass("shadow");
   });
 });

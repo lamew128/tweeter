@@ -56,19 +56,41 @@ const loadTweets = function() {
 $(document).ready(function() {
   loadTweets();
 
+  $("#drop").click(() => {
+    $("#compose").toggle("slow");
+  });
+
+  $(document).scroll(() => {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      $("#back").css("display", "block");
+    } else {
+      $("#back").css("display", "none");
+    }
+  });
+
+  $("#back").click(() => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  });
+
   $("form").submit(function(event) {
     event.preventDefault();
 
     console.log('Button clicked, performing ajax call...');
     if (!$("#tweet-text").val()) {
-      alert("no content!");
+      $("#error").html(`<p><i class="fa-solid fa-triangle-exclamation"></i> No input! <i class="fa-solid fa-triangle-exclamation"></i></p>`);
+      $("#error").slideDown("slow");
       return;
     } 
 
     if($("#tweet-text").val().length > 140) {
-      alert("Limit exceed!");
+      $("#error").html(`<p><i class="fa-solid fa-triangle-exclamation"></i> Too long! <i class="fa-solid fa-triangle-exclamation"></i></p>`);
+      $("#error").slideDown("slow");
       return;
     }
+
+    $("#error").html(`<p></p>`);
+    $("#error").hide();
 
     $.ajax({ 
       url: '/tweets',

@@ -1,12 +1,13 @@
 nav {
-  width: 100%;
+  width: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-self: flex-start;
   height: 120px;
   color: #FFFFFF;
-  background-color: #4056A1;
+  background-color: transparent;
   padding-left: 1.5em;
-  padding-right: 1.5em;
+  padding-right: 10em;
   position: fixed;
   top: 0;
 }
@@ -17,6 +18,7 @@ span {
   height: 120px;
   display: flex;
   align-items: center;
+  position: fixed;
 }
 
 a {
@@ -24,9 +26,31 @@ a {
   display: flex;
 }
 
-.right {
+.top {
+  height:120px;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  align-content: flex-end;
+  flex-direction: row;
+}
+
+.right {
+  margin-right: 1.5em;
+  display: flex;
+  align-items: center;
   flex-direction: column;
+}
+
+#arrow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-content: flex-end;
+  flex-direction: column;
+}
+
+.fa-angles-down {
+  color: red;
 }

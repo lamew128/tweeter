@@ -34,3 +34,16 @@ body {
    display: flex;
    flex-direction: column;
  }
+
+i.fa-circle-arrow-up {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  size: 2em;
+  color: #4056A1;
+}
+
+i.fa-circle-arrow-up:hover {
+  color: darkorange;
+}

@@ -48,7 +48,7 @@ i.blue {
   color: #4056A1;
 }
 
-i:hover {
+i.blue:hover {
   color: darkorange;
 }
 

@@ -33,15 +33,19 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
-      <div class="right">
-        <a><b style="margin-right: 0.3em">Write</b> a new tweet</a>
-        <i class="fa-solid fa-angles-down" style="color: red"></i>
-      </div>
     </nav>
 
     <header class="profile">
+      <div class="top">
+        <div class="right">
+          <a><b style="margin-right: 0.3em">Write</b> a new tweet</a>
+          <div id="arrow">
+            <i class="fa-solid fa-angles-down" id="drop"></i>
+          </div>
+        </div>
+      </div>
       <div>
-          <img src="/images/profile-hex.png"> 
+          <img src="/images/profile-hex.png" id="avater"> 
       </div>
       <br>
       <div>
@@ -51,7 +55,10 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section class="new-tweet" id="compose">
+        <div class="error" id="error">
+          <p></p>
+        </div>
         <h2>Compose Tweet</h2>
         <form class="block">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
@@ -66,5 +73,6 @@
         
       </section>
     </main>
+    <i class="fa-solid fa-circle-arrow-up fa-2xl" id="back"></i>
   </body>
 </html>

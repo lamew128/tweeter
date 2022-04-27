@@ -32,6 +32,10 @@ div.info {
   flex-direction: row;
 }
 
+img {
+  margin-right: 1em;
+}
+
 div.icon {
   width: 4em;
   display: flex;
@@ -63,4 +67,9 @@ hr {
   height: 0.2em;
   background-color: black;
   border-width: 0;
+}
+
+p.handle {
+  color: #a3b6f5;
+  font-weight: bold;
 }

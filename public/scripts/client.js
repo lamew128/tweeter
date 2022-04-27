@@ -11,7 +11,7 @@ const createTweetElement = function(tweetObject) {
     <img src="${tweetObject.user.avatars}"> 
       <p>${tweetObject.user.name}</p>
     </div>
-    <p>${tweetObject.user.handle}</p>
+    <p class="handle">${tweetObject.user.handle}</p>
   </header>
   <div class="tweet">
     <p>${tweetObject.content.text}</p>
@@ -32,10 +32,19 @@ const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
+  $('#tweets-container').html("");
   for (const tweet of tweets) {
     $('#tweets-container').append(createTweetElement(tweet));
   }
 }
+
+const loadTweets = function() {
+  $.ajax('/tweets', { method: 'GET' })
+    .then(function (data) {
+      console.log('Success: ', data);
+      renderTweets(data);
+    });
+};
 
 const data = [
   {
@@ -64,4 +73,36 @@ const data = [
 
 $(document).ready(function() {
   renderTweets(data);
+
+  $("form").submit(function(event) {
+    event.preventDefault();
+    console.log( $( this ).serialize() );
+
+    let newTweet = {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png"
+        ,
+        "handle": "@SirIsaac"
+      },
+      "content": {
+        "text": $("#tweet-text").val()
+      },
+      "created_at": new Date()
+    };
+
+    console.log('Button clicked, performing ajax call...');
+    $.ajax({ 
+      url: '/tweets',
+      type: 'POST',
+      data: $( this ).serialize(),
+      success: function () {
+        console.log('Success: ');
+        loadTweets();
+      }
+    });
+
+  });
 });
+
+

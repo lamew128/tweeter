@@ -52,11 +52,11 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form class="block" method="POST" action="/tweets">
+        <form class="block">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <br>
           <div class="new">
-            <button class="blue" type="submit">Tweet</button>
+            <button class="blue" type="submit" id="submit">Tweet</button>
             <output name="counter" id="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
@@ -68,7 +68,7 @@
               <i class="fa-solid fa-user-astronaut" style="margin-right: 1em"></i>
               <p>1qaz2wsx</p>
             </div>
-            <p>@qwer1234</p>
+            <p class="handle">@qwer1234</p>
           </header>
           <div class="tweet">
             <p>wqeqeqwewqeqweqwewqe</p>

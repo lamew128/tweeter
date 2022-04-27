@@ -46,4 +46,5 @@ i.fa-circle-arrow-up {
 
 i.fa-circle-arrow-up:hover {
   color: darkorange;
+  cursor: pointer;
 }

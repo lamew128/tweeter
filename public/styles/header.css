@@ -1,6 +1,6 @@
 header.profile {
   height: 520px;
-  width: 100%;
+  width: 40%;
   background-color: darkorange;
   background-image: url("https://www.transparenttextures.com/patterns/bright-squares.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
@@ -8,4 +8,10 @@ header.profile {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 1024px) {
+  header.profile {
+    width: 100%;
+  }
 }

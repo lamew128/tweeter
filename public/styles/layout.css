@@ -19,20 +19,32 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+#qwe {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  padding-top: 150px;
+  justify-content: space-around;
+}
+
+#qwe main {
+  flex: 0.6;
+}
+
+#qwe header {
+  flex: 0.3;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
  main {
-   width: 90%;
+   width: 60%; /*90%*/
    background-color: inherit;
    display: flex;
    flex-direction: column;
+   float: right;
  }
 
 i.fa-circle-arrow-up {
@@ -47,4 +59,25 @@ i.fa-circle-arrow-up {
 i.fa-circle-arrow-up:hover {
   color: darkorange;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+  #qwe {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  #qwe main {
+    flex: 1;
+  }
+  
+  #qwe header {
+    flex: 1;
+  }
+
+  main {
+    width: 90%;
+  }
+  
 }

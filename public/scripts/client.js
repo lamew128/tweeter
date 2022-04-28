@@ -58,6 +58,7 @@ $(document).ready(function() {
 
   $("#drop").click(() => {
     $("#compose").toggle("slow");
+    $("#tweet-text").focus();
   });
 
   $(document).scroll(() => {

@@ -6,8 +6,8 @@ Ajax based, uses jQuery, HTML5 and CSS3.
 
 ## Screenshots
 
-!["Desktop view"](https://github.com/lamew128/tweeter/blob/master/screenshots/screen1.png)
-!["Mobile view"](https://github.com/lamew128/tweeter/blob/master/screenshots/screen2.png)
+!["Desktop view"](https://github.com/lamew128/tweeter/blob/master/screenshots/screen1.PNG)
+!["Mobile view"](https://github.com/lamew128/tweeter/blob/master/screenshots/screen2.PNG)
 
 ## Main functions
 

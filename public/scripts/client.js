@@ -4,12 +4,16 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+//Prevent XSS
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
+/*
+  convert a tweet object to html code
+ */
 const createTweetElement = function(tweetObject) {
   return `<article class="tweet">
   <header class="tweet">
@@ -34,6 +38,9 @@ const createTweetElement = function(tweetObject) {
 </article>`
 };
 
+/*
+  display all tweets
+ */
 const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
@@ -44,55 +51,47 @@ const renderTweets = function(tweets) {
   }
 }
 
+/*
+  display all tweets when ajax get request is called
+*/
 const loadTweets = function() {
   $.ajax('/tweets', { method: 'GET' })
     .then(function (data) {
-      //console.log('Success: ', data);
       renderTweets(data);
     });
 
 };
 
+
+
 $(document).ready(function() {
   loadTweets();
 
-  $("#drop").click(() => {
-    $("#compose").toggle("slow");
-    $("#tweet-text").focus();
-  });
-
-  $(document).scroll(() => {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      $("#back").css("display", "block");
-    } else {
-      $("#back").css("display", "none");
-    }
-  });
-
-  $("#back").click(() => {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  });
-
+  //When the compose form is submited
   $("form").submit(function(event) {
     event.preventDefault();
 
-    console.log('Button clicked, performing ajax call...');
+    //check if there is no input
+    //if yes: display error message
     if (!$("#tweet-text").val()) {
       $("#error").html(`<p><i class="fa-solid fa-triangle-exclamation"></i> No input! <i class="fa-solid fa-triangle-exclamation"></i></p>`);
       $("#error").slideDown("slow");
       return;
     } 
 
+    //check if the input exceed the limit
+    //if yes: display error message
     if($("#tweet-text").val().length > 140) {
       $("#error").html(`<p><i class="fa-solid fa-triangle-exclamation"></i> Too long! <i class="fa-solid fa-triangle-exclamation"></i></p>`);
       $("#error").slideDown("slow");
       return;
     }
 
+    //hide the error message if no error
     $("#error").html(`<p></p>`);
     $("#error").hide();
 
+    //perform an ajax post to create and store the new tweet object
     $.ajax({ 
       url: '/tweets',
       method: 'POST',
@@ -103,6 +102,7 @@ $(document).ready(function() {
       loadTweets();
     });
 
+    //reset the form
     $("#tweet-text").val("");
     $("#counter").html(140);
   });

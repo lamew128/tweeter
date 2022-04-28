@@ -56,10 +56,6 @@ div.error {
   width: inherit;
  }
 
- .counter {
-   color: black;
- }
-
  .counterZero {
   color: red;
 }

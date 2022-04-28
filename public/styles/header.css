@@ -3,7 +3,6 @@ header.profile {
   width: 40%;
   background-color: darkorange;
   background-image: url("https://www.transparenttextures.com/patterns/bright-squares.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   display: flex;
   justify-content: center;
   align-items: center;

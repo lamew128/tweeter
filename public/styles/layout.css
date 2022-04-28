@@ -36,11 +36,8 @@ body {
   flex: 0.3;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
  main {
-   width: 60%; /*90%*/
+   width: 60%;
    background-color: inherit;
    display: flex;
    flex-direction: column;
